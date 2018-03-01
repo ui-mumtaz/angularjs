@@ -1,4 +1,4 @@
-Angularjs : Tracking a Form Validity
+ANGULARJS : TRACKING A FORM VALIDITY
 
 $pristine : true when the form (or any of its input) has not been touched
 
