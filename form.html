@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+ 
+<html>
+<head>
+    <title>Form</title>
+    <script src="http://code.angularjs.org/1.4.8/angular.js"></script>  
+</script>
+    <script>
+        var app = angular.module('app', []);
+        app.controller('formvalidateController', function ($scope) {
+           
+ 
+            $scope.submitForm = function (IsValid) {
+                if (IsValid) {
+                    alert("Registration Form is submitted");
+                }
+            }
+ 
+        });
+    </script>
+</head>
+<body ng-app="app">
+    <div>
+        <h2> Regidtration Form</h2>
+        <form ng-controller="formvalidateController" name="InputForm" ng-submit="submitForm(InputForm.$valid)" novalidate >
+            <p>
+                  Name :
+               <input type="text" ng-model="name" name="name" required />
+                <span style="color: red;" ng-show="InputForm.name.$dirty && InputForm.name.$invalid">
+                    <span ng-show="InputForm.name.$error.required">Name is mandatory</span>
+                </span>
+            </p>
+ 
+            <p>
+                Email Id :
+               <input type="email" ng-model="email" name="email" required />
+                <span style="color:red;" ng-show="InputForm.email.$dirty && InputForm.email.$invalid">
+                    <span ng-show="InputForm.email.$error.required">Email Id is mandatory</span>
+                    <span ng-show="InputForm.email.$error.email">Invalid email id</span>
+                </span>
+            </p>
+ 
+            <p>
+                Password :
+                <input type="password" ng-model="password" name="password" required ng-minlength="2" />
+                <span style="color:red;" ng-show="InputForm.password.$dirty && InputForm.password.$invalid">
+                    <span ng-show="InputForm.password.$error.required">Password is mandatory</span>
+                    <span ng-show="InputForm.password.$error.minlength">Minimum password length is 3</span>
+                </span>
+            </p>
+ 
+ 
+            <p>
+                <input type="submit" ng-disabled="InputForm.name.$dirty && InputForm.name.$invalid  || InputForm.name.$pristine || InputForm.email.$pristine || InputForm.email.$dirty && InputForm.email.$invalid || InputForm.password.$dirty && InputForm.password.$invalid"/>
+            </p>
+        </form>
+    </div>
+ 
+</body>
+</html>
