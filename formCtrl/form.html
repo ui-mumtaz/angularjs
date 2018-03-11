@@ -1,0 +1,26 @@
+<div id="login" class="row">
+    <div class="large-6 large-offset-3">
+        <form ng-submit="login()" name="form">
+            <div class="row">
+                <div class="large-12 columns">
+                    Login id : <input type="text" name="name" ng-model="uid.name" id="loginid" required /> 
+                </div>
+            </div>
+             <div class="row">
+                    <div class="large-12 columns">
+                        Password : <input type="password" ng-model="uid.password" id="pwd" /> <br>
+                 </div>
+            </div>
+            <div class="row">
+                    <div class="large-12 columns">
+                         <button ng-disabled="form.name.$dirty && form.name.$invalid || form.name.$pristine">submit</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+<div ng-hide="hideDiv" class="row">
+    Sorry, this login is invalid
+    <a href="#" class="close">&times;</a>
+</div>
